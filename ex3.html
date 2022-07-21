@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WEB1 - JavaScript</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css"/>
+        <style>
+            .js {
+                font-weight: bold;
+                color: red;
+            }
+            #first{
+                color: green;
+            }
+            span{
+                color: blue;
+            }
+        </style>
+        <script>
+            var Body = {
+                setColor: function(color) {
+                    document.querySelector('body').style.color = color;
+                },
+                setBackgroundColor: function(color) {
+                    document.querySelector('body').style.backgroundColor = color;
+                }
+            }
+            function nigthDayHandler(self) {
+                var target = document.querySelector('body');
+                if (self.value === 'night') {
+                    Body.setBackgroundColor('black');
+                    Body.setColor('white');
+                    self.value = 'day';
+
+                    Links.setColor('powderblue')
+                } else {
+                    Body.setBackgroundColor('white');
+                    Body.setColor('black');
+                    self.value = 'night';
+
+                    Links.setColor('blue')
+                }
+            }
+            var Links = {
+                setColor: function(color) {
+                    var alist = document.querySelectorAll('a');
+                    var i = 0;
+                    while(i < alist.length) {
+                        alist[i].style.color = color;
+                        i = i + 1;
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1><a href="index.html">WEB</a></h1>
+        
+        <!-- <input type="button" value="night" onclick="
+            document.querySelector('body').style.backgroundColor ='black';
+            document.querySelector('body').style.color ='white';
+        ">
+        <input type="button" value="day" onclick="
+            document.querySelector('body').style.backgroundColor ='white';
+            document.querySelector('body').style.color ='black';
+        "> -->
+
+        <input type="button" value="night" onclick="
+            nigthDayHandler(this);
+        ">
+
+
+        <div id="grid">
+            <ol>
+                <li><a href="1.html">HTML</a></li>
+                <li><a href="2.html">CSS</a></li>
+                <li><a href="3.html">JavaScript</a></li>
+            </ol>
+
+            <div id="article">
+                <h2 style="background-color: coral; color: powderblue;">JavaScript란 무엇인가?</h2>
+                <p>
+                    <span id="first" class="js">JavaScript</span> (/ˈdʒɑːvəskrɪpt/),[10] often abbreviated JS, is a programming language that is one of the core technologies of the World Wide Web,
+                    alongside <span>HTML</span> and <span>CSS</span>.[11]
+                    As of 2022, 98% of websites use <span class="js">JavaScript</span> on the client side for web page behavior,[12] often incorporating third-party libraries.[13]
+                    All major web browsers have a dedicated <span class="js">JavaScript</span> engine to execute the code on users' devices.
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
